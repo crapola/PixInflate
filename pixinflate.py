@@ -29,7 +29,7 @@ def create_result_layer(image,name,colors):
 		else:
 			rlBytes+=struct.pack('BBB',c[0],c[1],c[2])
 
-	rl=gimp.Layer(image,name,image.width,image.height,image.active_layer.type,100,NORMAL_MODE)
+	rl=gimp.Layer(image,name,image.active_layer.width,image.active_layer.height,image.active_layer.type,100,NORMAL_MODE)
 	region=rl.get_pixel_rgn(0,0,rl.width,rl.height,True)
 	region[:,:]=rlBytes
 	image.add_layer(rl,0)
